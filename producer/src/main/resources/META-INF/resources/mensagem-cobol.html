@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mensagem COBOL</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.24.0/css/patternfly.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.24.0/css/patternfly-additions.min.css">
+</head>
+
+<body>
+	<div class="container">
+	    <div class="card">
+	        <div class="card-body">
+	            <button class="btn btn-info" id="request-quote">Enviar mensagem</button>
+	            <div class="mensagens"></div>
+	        </div>
+	    </div>
+	</div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $("#request-quote").click((event) => {
+        fetch("/mensagemcobol/request", {method: "POST", body: "AAAAAAAAAAAAA"})
+        .then(res => res.text())
+        .then(qid => {
+            var row = $(`<h4 class='col-md-12' id='${qid}'><strong>ISO:</strong> <i>${qid}</i> </h4>`);
+            $(".mensagens").prepend(row);
+        });
+    });
+</script>
+</html>
