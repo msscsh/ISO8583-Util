@@ -14,8 +14,8 @@ import jakarta.ws.rs.core.MediaType;
 @Path("/mensagemcobol")
 public class MensagemCobolProducer {
 
-    @Channel("quote-requests")
-    Emitter<String> quoteRequestEmitter;
+    @Channel("mensagem-cobol")
+    Emitter<String> mensagemCobolEmitter;
 
     @Channel("quotes")
     Multi<MensagemCobol> mensagensCobol;
@@ -27,7 +27,7 @@ public class MensagemCobolProducer {
     	
     	System.out.println("ISO ENTRADA >>>>>>>>>>> " + iSOExemplo);
     	MensagemCobol mensagem = new MensagemCobol(iSOExemplo);
-        quoteRequestEmitter.send(mensagem.toString());
+        mensagemCobolEmitter.send(mensagem.toString());
         
         return iSOExemplo;
     }
