@@ -1,5 +1,6 @@
 package br.com.msscsh.isoutil.builders;
 
+import br.com.msscsh.isoutil.enumeradores.TamanhoDeCamposISO8583;
 import br.com.msscsh.isoutil.pojos.ArquivoPOJO;
 
 abstract class ArquivoPOJOGenericBuilder<B extends ArquivoPOJOGenericBuilder<B>> {
@@ -14,13 +15,10 @@ abstract class ArquivoPOJOGenericBuilder<B extends ArquivoPOJOGenericBuilder<B>>
 		this.ponteiroDeCampo = 0;
 	}
 
-    public B setCampoA(int tamanho) {
-    	arquivoPOJO.setCampoA(getCampoNaMensagemKafka(tamanho));
-    	return self();
-    }
-
-    public B setCampoB(int tamanho) {
-    	arquivoPOJO.setCampoB(getCampoNaMensagemKafka(tamanho));
+    public B setBit53() {
+    	arquivoPOJO.setNomeDoEstabelecimento(getCampoNaMensagemKafka(TamanhoDeCamposISO8583.BIT53_NOMEDOESTABELECIMENTO.size));
+    	arquivoPOJO.setNomeDaCidade(getCampoNaMensagemKafka(TamanhoDeCamposISO8583.BIT53_NOMEDACIDADE.size));
+    	arquivoPOJO.setCodigoDoPaisOuEstado(getCampoNaMensagemKafka(TamanhoDeCamposISO8583.BIT53_CODIGODOPAISOUESTADO.size));
     	return self();
     }
     

@@ -1,5 +1,6 @@
 package br.com.msscsh.isoutil.builders;
 
+import br.com.msscsh.isoutil.enumeradores.TamanhoDeCamposVISA;
 import br.com.msscsh.isoutil.pojos.ArquivoPOJO;
 
 public class ArquivoPOJOVisaBuilder extends ArquivoPOJOGenericBuilder<ArquivoPOJOVisaBuilder> {
@@ -9,21 +10,22 @@ public class ArquivoPOJOVisaBuilder extends ArquivoPOJOGenericBuilder<ArquivoPOJ
 	}
 
 	@Override
-    public ArquivoPOJOVisaBuilder setCampoA(int tamanho) {
-    	arquivoPOJO.setCampoA(getCampoNaMensagemKafka(tamanho));
-    	return self();
-    }
-
-	@Override
-    public ArquivoPOJOVisaBuilder setCampoB(int tamanho) {
-    	arquivoPOJO.setCampoB(getCampoNaMensagemKafka(tamanho));
+    public ArquivoPOJOVisaBuilder setBit53() {
+    	arquivoPOJO.setNomeDoEstabelecimento(getCampoNaMensagemKafka(TamanhoDeCamposVISA.BIT53_NOMEDOESTABELECIMENTO.size));
+    	getCampoNaMensagemKafka(1);
+    	arquivoPOJO.setNomeDaCidade(getCampoNaMensagemKafka(TamanhoDeCamposVISA.BIT53_NOMEDACIDADE.size));
+    	getCampoNaMensagemKafka(1);
+    	arquivoPOJO.setCodigoDoPaisOuEstado(getCampoNaMensagemKafka(TamanhoDeCamposVISA.BIT53_CODIGODOPAISOUESTADO.size));
     	return self();
     }
     
     public static void main(String[] args) {
-    	ArquivoPOJO builded = new ArquivoPOJOVisaBuilder("AAAAABBBBBBBBBBcccccccccccccccccccc")
-    		.setCampoA(10)
-    		.setCampoB(5)
+    	ArquivoPOJO builded = new ArquivoPOJOVisaBuilder("")
+//    		.setBit1()
+//    		...
+    		.setBit53()
+//    		...
+//    		.setBit127()
     		.build();
     	
     	System.out.println(builded);
