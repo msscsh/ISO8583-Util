@@ -7,10 +7,10 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class ArquivoPOJO {
+public abstract class ArquivoPOJO {
 
-	String nomeDoEstabelecimento;
-	String nomeDaCidade;
-	String codigoDoPaisOuEstado;
+	public String nomeDoEstabelecimento;
+	public String nomeDaCidade;
+	public String codigoDoPaisOuEstado;
 	
 }
