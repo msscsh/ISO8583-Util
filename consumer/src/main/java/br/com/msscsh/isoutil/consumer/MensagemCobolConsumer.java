@@ -13,8 +13,8 @@ public class MensagemCobolConsumer {
     @Incoming("requests")
     @Outgoing("quotes")
     @Blocking
-    public MensagemCobol process(MensagemCobol quoteRequest) throws InterruptedException {
-        System.out.println("ISO CONSUMIDA NA FILA >>>>>>> " + quoteRequest);
-        return quoteRequest;
+    public MensagemCobol process(MensagemCobol mensagemCobol) throws InterruptedException {
+        System.out.println("ISO CONSUMIDA NA FILA >>>>>>> " + mensagemCobol);
+        return mensagemCobol;
     }
 }
