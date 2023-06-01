@@ -4,7 +4,7 @@ import br.com.msscsh.isoutil.enumeradores.TamanhoDeCamposVISA;
 import br.com.msscsh.isoutil.pojos.ArquivoPOJO;
 import br.com.msscsh.isoutil.pojos.ArquivoPOJOVISA;
 
-public class ArquivoPOJOVisaBuilder extends ArquivoPOJOGenericBuilder<ArquivoPOJOVisaBuilder, ArquivoPOJOVISA> {
+public class ArquivoPOJOVisaBuilder extends ArquivoPOJOBuilder<ArquivoPOJOVisaBuilder, ArquivoPOJOVISA> {
 	
 	public ArquivoPOJOVisaBuilder(String mensagemKafka) {
 		super(mensagemKafka, new ArquivoPOJOVISA());

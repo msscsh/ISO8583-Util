@@ -3,13 +3,13 @@ package br.com.msscsh.isoutil.builders;
 import br.com.msscsh.isoutil.enumeradores.TamanhoDeCamposISO8583;
 import br.com.msscsh.isoutil.pojos.ArquivoPOJO;
 
-abstract class ArquivoPOJOGenericBuilder<B extends ArquivoPOJOGenericBuilder<B, T>, T extends ArquivoPOJO> {
+abstract class ArquivoPOJOBuilder<B extends ArquivoPOJOBuilder<B, T>, T extends ArquivoPOJO> {
 
 	protected T arquivoPOJO;
 	private String mensagemKafka;
 	private int ponteiroDeCampo;
 	
-	protected ArquivoPOJOGenericBuilder(String mensagemKafka, T arquivoPOJOt) {
+	protected ArquivoPOJOBuilder(String mensagemKafka, T arquivoPOJOt) {
 		this.mensagemKafka = mensagemKafka;
 		this.arquivoPOJO = arquivoPOJOt;
 		this.ponteiroDeCampo = 0;
