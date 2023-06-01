@@ -1,7 +1,5 @@
 package br.com.msscsh.isoutil.builders;
 
-import java.util.List;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -18,13 +16,12 @@ public class MensagemVisaBuilder extends MensagemISOBuilder<MensagemVisaBuilder,
 	@Override
     public MensagemVisaBuilder setBit53() {
 		
-		List<CampoVISA> recorteDeAtributosDoCampo53 = CampoVISA.buscarPorAtributo3(53);
-		
-		recorteDeAtributosDoCampo53.forEach(
-				atributoEnum -> {
-					arquivoPOJO.adicionarAtributo(atributoEnum.nome, getCampoNaMensagemKafka(atributoEnum.tamanho));
-					getCampoNaMensagemKafka(atributoEnum.tamanhoASerIgnoradoPosLeituraDoCampo);
-				});
+		CampoVISA.buscarPorCampo(53)
+				.forEach(atributoEnum ->
+					{
+						arquivoPOJO.adicionarAtributo(atributoEnum.nomeDoAtributo, getCampoNaMensagemKafka(atributoEnum.tamanhoDoAtributo));
+						getCampoNaMensagemKafka(atributoEnum.tamanhoASerIgnoradoPosLeituraDoAtributo);
+					});
 		
     	return self();
     }
@@ -35,7 +32,7 @@ public class MensagemVisaBuilder extends MensagemISOBuilder<MensagemVisaBuilder,
     		.build();
     	
         ObjectMapper objectMapper = new ObjectMapper();
-        String json = objectMapper.writeValueAsString(builded);
+        String json = objectMapper.writeValueAsString(builded.getAtributosDoJson());
     	
     	System.out.println(json);
 	}

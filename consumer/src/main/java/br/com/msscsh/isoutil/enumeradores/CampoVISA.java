@@ -18,20 +18,20 @@ public enum CampoVISA {
 	 * Ex: Campo 1, Campo 2... Campo 127.
 	 */
 	public int numeroDoCampo;
-	public String nome;
+	public String nomeDoAtributo;
 	/**
 	 * Representa a numeracao de ordem do atributo dentro de um campo.
 	 * Ex: No Campo 53, temos: Atributo 1= nomeDoEstabelecimento; Atributo 2= nomeDaCidade; Atributo 3= codigoDoPAisOuEstado;
 	 */
-	public int ordemDoAtributoNoCampo;
-	public int tamanho;
+	public int ordemDoAtributo;
+	public int tamanhoDoAtributo;
 	/**
 	 * Informacoes podem ser distanciadas por trails, desta maneira
 	 * cada atributo deve informar qual o espacamento entre ele e a proxima informação.
 	 */
-	public int tamanhoASerIgnoradoPosLeituraDoCampo;
+	public int tamanhoASerIgnoradoPosLeituraDoAtributo;
 	
-	public static List<CampoVISA> buscarPorAtributo3(int numeroDoCampo) {
+	public static List<CampoVISA> buscarPorCampo(int numeroDoCampo) {
 	    return Arrays.stream(CampoVISA.values())
 	            .filter(entrada -> entrada.numeroDoCampo == numeroDoCampo)
 	            .collect(Collectors.toList());
