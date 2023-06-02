@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum ParteMensagemCobol {
+public enum ParteMensagemCOBOL {
 
 	IDENTIFICADO_DO_TIPO_DE_MENSAGEM("IDENTIFICADOR DO TIPO DE MENSAGEM", 1, 100),
 	MAPA_DE_BITS_EXTENDIDO("MAPA DE BITS EXTENDIDO", 2, 100),

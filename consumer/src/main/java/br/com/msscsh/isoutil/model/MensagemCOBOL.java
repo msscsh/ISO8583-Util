@@ -1,14 +1,14 @@
 package br.com.msscsh.isoutil.model;
 
 
-public class MensagemCobol {
+public class MensagemCOBOL {
 
     public String iso;
 
-    public MensagemCobol(){
+    public MensagemCOBOL(){
     }
 
-    public MensagemCobol(String iso) {
+    public MensagemCOBOL(String iso) {
         this.iso = iso;
     }
 

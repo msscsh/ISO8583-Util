@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 import br.com.msscsh.isoutil.builders.MensagemBuilder;
-import br.com.msscsh.isoutil.enumeradores.ParteMensagemCobol;
+import br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL;
 import br.com.msscsh.isoutil.enumeradores.visa.CampoVISA;
 import br.com.msscsh.isoutil.model.MensagemVISA;
 
@@ -17,7 +17,7 @@ public class MensagemVISABuilder extends MensagemBuilder<MensagemVISABuilder, Me
 	}
 	
     public MensagemVISABuilder setBits() {
-    	Arrays.stream(ParteMensagemCobol.values())
+    	Arrays.stream(ParteMensagemCOBOL.values())
         .collect(Collectors.toList())
         .forEach(
         		parteCobol -> {

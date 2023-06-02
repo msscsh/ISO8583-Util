@@ -3,7 +3,7 @@ package br.com.msscsh.isoutil.builders.elo;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-import br.com.msscsh.isoutil.enumeradores.ParteMensagemCobol;
+import br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL;
 import br.com.msscsh.isoutil.enumeradores.elo.CampoElo;
 import br.com.msscsh.isoutil.model.MensagemElo;
 
@@ -18,7 +18,7 @@ public class MensagemEloBuilder extends MensagemBuilder<MensagemEloBuilder, Mens
 	}
 
     public MensagemEloBuilder setBits() {
-    	Arrays.stream(ParteMensagemCobol.values())
+    	Arrays.stream(ParteMensagemCOBOL.values())
         .collect(Collectors.toList())
         .forEach(
         		parteCobol -> {

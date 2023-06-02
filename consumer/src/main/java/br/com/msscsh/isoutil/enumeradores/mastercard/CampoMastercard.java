@@ -4,15 +4,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import br.com.msscsh.isoutil.enumeradores.ParteMensagemCobol;
+import br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public enum CampoMastercard {
 
-	BIT53_NOMEDOESTABELECIMENTO(ParteMensagemCobol.BIT_053_INFORMACAO_DE_CONTROLE_RELACIONADA_A_SEGURANCA.getNumeroDeOrdem(), "nomeDoEstabelecimento", 1, 22, 1),
-	BIT53_NOMEDACIDADE(ParteMensagemCobol.BIT_053_INFORMACAO_DE_CONTROLE_RELACIONADA_A_SEGURANCA.getNumeroDeOrdem(), "nomeDaCidade", 2, 13, 1),
-	BIT53_CODIGODOPAISOUESTADO(ParteMensagemCobol.BIT_053_INFORMACAO_DE_CONTROLE_RELACIONADA_A_SEGURANCA.getNumeroDeOrdem(), "codigoDoPAisOuEstado", 3, 3, 0);
+	BIT53_NOMEDOESTABELECIMENTO(ParteMensagemCOBOL.BIT_053_INFORMACAO_DE_CONTROLE_RELACIONADA_A_SEGURANCA.getNumeroDeOrdem(), "nomeDoEstabelecimento", 1, 22, 1),
+	BIT53_NOMEDACIDADE(ParteMensagemCOBOL.BIT_053_INFORMACAO_DE_CONTROLE_RELACIONADA_A_SEGURANCA.getNumeroDeOrdem(), "nomeDaCidade", 2, 13, 1),
+	BIT53_CODIGODOPAISOUESTADO(ParteMensagemCOBOL.BIT_053_INFORMACAO_DE_CONTROLE_RELACIONADA_A_SEGURANCA.getNumeroDeOrdem(), "codigoDoPAisOuEstado", 3, 3, 0);
 
 	/**
 	 * Representa a numeracao de ordem do campo.
@@ -32,7 +32,7 @@ public enum CampoMastercard {
 	 */
 	public int tamanhoASerIgnoradoPosLeituraDoAtributo;
 	
-	public static List<CampoMastercard> buscarAtributosPorNumeroDaParteDaMensagemCobol(ParteMensagemCobol parteDaMensagemCobol) {
+	public static List<CampoMastercard> buscarAtributosPorNumeroDaParteDaMensagemCobol(ParteMensagemCOBOL parteDaMensagemCobol) {
 	    return Arrays.stream(CampoMastercard.values())
 	            .filter(entrada -> entrada.numeroDeOrdemDaParteDaMensagemCobol == parteDaMensagemCobol.getNumeroDeOrdem())
 	            .collect(Collectors.toList());

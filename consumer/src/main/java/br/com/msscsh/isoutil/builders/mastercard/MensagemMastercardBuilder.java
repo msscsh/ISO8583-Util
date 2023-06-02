@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 import br.com.msscsh.isoutil.builders.MensagemBuilder;
-import br.com.msscsh.isoutil.enumeradores.ParteMensagemCobol;
+import br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL;
 import br.com.msscsh.isoutil.enumeradores.mastercard.CampoMastercard;
 import br.com.msscsh.isoutil.model.MensagemMastercard;
 
@@ -17,7 +17,7 @@ public class MensagemMastercardBuilder extends MensagemBuilder<MensagemMastercar
 	}
 
     public MensagemMastercardBuilder setBits() {
-    	Arrays.stream(ParteMensagemCobol.values())
+    	Arrays.stream(ParteMensagemCOBOL.values())
         .collect(Collectors.toList())
         .forEach(
         		parteCobol -> {
