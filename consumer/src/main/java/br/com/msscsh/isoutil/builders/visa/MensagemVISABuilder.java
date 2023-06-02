@@ -1,38 +1,38 @@
-package br.com.msscsh.isoutil.builders;
+package br.com.msscsh.isoutil.builders.visa;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-import br.com.msscsh.isoutil.enumeradores.CampoMastercard;
+import br.com.msscsh.isoutil.builders.MensagemBuilder;
 import br.com.msscsh.isoutil.enumeradores.ParteMensagemCobol;
-import br.com.msscsh.isoutil.model.MensagemMastercard;
+import br.com.msscsh.isoutil.enumeradores.visa.CampoVISA;
+import br.com.msscsh.isoutil.model.MensagemVISA;
 
-public class MensagemMastercardBuilder extends MensagemBuilder<MensagemMastercardBuilder, MensagemMastercard> {
-	
-	private AcaoAtributoMastercard acaoParaEsteAtributo = atributoEnum -> { execucaoPadraoDoAtributoDaBandeira(atributoEnum); };
-	
-	protected MensagemMastercardBuilder(String mensagemKafka) {
-		super(mensagemKafka, new MensagemMastercard());
+public class MensagemVISABuilder extends MensagemBuilder<MensagemVISABuilder, MensagemVISA> {
+
+	protected AcaoAtributoVISA acaoParaEsteAtributo = atributoEnum -> { execucaoPadraoDoAtributoDaBandeira(atributoEnum); };
+
+	public MensagemVISABuilder(String mensagemKafka) {
+		super(mensagemKafka, new MensagemVISA());
 	}
-
-    public MensagemMastercardBuilder setBits() {
+	
+    public MensagemVISABuilder setBits() {
     	Arrays.stream(ParteMensagemCobol.values())
         .collect(Collectors.toList())
         .forEach(
         		parteCobol -> {
-        			CampoMastercard
+        			CampoVISA
 						.buscarAtributosPorNumeroDaParteDaMensagemCobol(parteCobol)
 						.stream()
 						.sorted((o1, o2) -> Integer.compare(o1.ordemDoAtributo, o2.ordemDoAtributo))
 					    .forEach(acaoParaEsteAtributo::executar);
         		});
-    	
     	return self();
     }
 
-	private void execucaoPadraoDoAtributoDaBandeira(CampoMastercard atributoEnum) {
+	private void execucaoPadraoDoAtributoDaBandeira(CampoVISA atributoEnum) {
 		arquivoPOJO.adicionarAtributo(atributoEnum.nomeDoAtributo, getCampoNaMensagemKafka(atributoEnum.tamanhoDoAtributo));
 	    getCampoNaMensagemKafka(atributoEnum.tamanhoASerIgnoradoPosLeituraDoAtributo);
 	}
-
+    
 }

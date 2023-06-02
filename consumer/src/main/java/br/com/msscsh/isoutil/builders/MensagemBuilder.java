@@ -3,17 +3,20 @@ package br.com.msscsh.isoutil.builders;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import br.com.msscsh.isoutil.builders.elo.MensagemEloBuilder;
+import br.com.msscsh.isoutil.builders.mastercard.MensagemMastercardBuilder;
+import br.com.msscsh.isoutil.builders.visa.MensagemVISABuilder;
 import br.com.msscsh.isoutil.model.MensagemISO8583;
 
-abstract class MensagemBuilder<B extends MensagemBuilder<B, T>, T extends MensagemISO8583> {
+public abstract class MensagemBuilder<B extends MensagemBuilder<B, T>, T extends MensagemISO8583> {
 
 	protected T arquivoPOJO;
 	private String mensagemKafka;
 	private int ponteiroDeCampo;
-	
+
 	protected MensagemBuilder(String mensagemKafka, T arquivoPOJOt) {
 		this.mensagemKafka = mensagemKafka;
-		this.arquivoPOJO = arquivoPOJOt;
+		this.arquivoPOJO = arquivoPOJOt;	
 		this.ponteiroDeCampo = 0;
 	}
     
@@ -30,7 +33,7 @@ abstract class MensagemBuilder<B extends MensagemBuilder<B, T>, T extends Mensag
 	}
     
     @SuppressWarnings("unchecked")
-    final B self() {
+    protected final B self() {
         return (B) this;
     }
     

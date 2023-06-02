@@ -1,13 +1,14 @@
-package br.com.msscsh.isoutil.enumeradores;
+package br.com.msscsh.isoutil.enumeradores.visa;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import br.com.msscsh.isoutil.enumeradores.ParteMensagemCobol;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public enum CampoMastercard {
+public enum CampoVISA {
 
 	BIT53_NOMEDOESTABELECIMENTO(ParteMensagemCobol.BIT_053_INFORMACAO_DE_CONTROLE_RELACIONADA_A_SEGURANCA.getNumeroDeOrdem(), "nomeDoEstabelecimento", 1, 22, 1),
 	BIT53_NOMEDACIDADE(ParteMensagemCobol.BIT_053_INFORMACAO_DE_CONTROLE_RELACIONADA_A_SEGURANCA.getNumeroDeOrdem(), "nomeDaCidade", 2, 13, 1),
@@ -31,8 +32,8 @@ public enum CampoMastercard {
 	 */
 	public int tamanhoASerIgnoradoPosLeituraDoAtributo;
 	
-	public static List<CampoMastercard> buscarAtributosPorNumeroDaParteDaMensagemCobol(ParteMensagemCobol parteDaMensagemCobol) {
-	    return Arrays.stream(CampoMastercard.values())
+	public static List<CampoVISA> buscarAtributosPorNumeroDaParteDaMensagemCobol(ParteMensagemCobol parteDaMensagemCobol) {
+	    return Arrays.stream(CampoVISA.values())
 	            .filter(entrada -> entrada.numeroDeOrdemDaParteDaMensagemCobol == parteDaMensagemCobol.getNumeroDeOrdem())
 	            .collect(Collectors.toList());
 	}

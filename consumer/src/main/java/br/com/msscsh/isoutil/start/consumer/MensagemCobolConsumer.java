@@ -1,4 +1,4 @@
-package br.com.msscsh.isoutil.consumer;
+package br.com.msscsh.isoutil.start.consumer;
 
 import org.eclipse.microprofile.reactive.messaging.Incoming;
 import org.eclipse.microprofile.reactive.messaging.Outgoing;

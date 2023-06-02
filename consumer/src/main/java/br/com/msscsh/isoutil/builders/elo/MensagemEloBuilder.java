@@ -1,26 +1,28 @@
-package br.com.msscsh.isoutil.builders;
+package br.com.msscsh.isoutil.builders.elo;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-import br.com.msscsh.isoutil.enumeradores.CampoVISA;
 import br.com.msscsh.isoutil.enumeradores.ParteMensagemCobol;
-import br.com.msscsh.isoutil.model.MensagemVISA;
+import br.com.msscsh.isoutil.enumeradores.elo.CampoElo;
+import br.com.msscsh.isoutil.model.MensagemElo;
 
-public class MensagemVISABuilder extends MensagemBuilder<MensagemVISABuilder, MensagemVISA> {
+import br.com.msscsh.isoutil.builders.MensagemBuilder;
 
-	protected AcaoAtributoVISA acaoParaEsteAtributo = atributoEnum -> { execucaoPadraoDoAtributoDaBandeira(atributoEnum); };
+public class MensagemEloBuilder extends MensagemBuilder<MensagemEloBuilder, MensagemElo> {
 
-	public MensagemVISABuilder(String mensagemKafka) {
-		super(mensagemKafka, new MensagemVISA());
-	}
+	private AcaoAtributoElo acaoParaEsteAtributo = atributoEnum -> { execucaoPadraoDoAtributoDaBandeira(atributoEnum); };
 	
-    public MensagemVISABuilder setBits() {
+	public MensagemEloBuilder(String mensagemKafka) {
+		super(mensagemKafka, new MensagemElo());
+	}
+
+    public MensagemEloBuilder setBits() {
     	Arrays.stream(ParteMensagemCobol.values())
         .collect(Collectors.toList())
         .forEach(
         		parteCobol -> {
-        			CampoVISA
+        			CampoElo
 						.buscarAtributosPorNumeroDaParteDaMensagemCobol(parteCobol)
 						.stream()
 						.sorted((o1, o2) -> Integer.compare(o1.ordemDoAtributo, o2.ordemDoAtributo))
@@ -29,9 +31,8 @@ public class MensagemVISABuilder extends MensagemBuilder<MensagemVISABuilder, Me
     	return self();
     }
 
-	private void execucaoPadraoDoAtributoDaBandeira(CampoVISA atributoEnum) {
+	private void execucaoPadraoDoAtributoDaBandeira(CampoElo atributoEnum) {
 		arquivoPOJO.adicionarAtributo(atributoEnum.nomeDoAtributo, getCampoNaMensagemKafka(atributoEnum.tamanhoDoAtributo));
 	    getCampoNaMensagemKafka(atributoEnum.tamanhoASerIgnoradoPosLeituraDoAtributo);
 	}
-    
 }
