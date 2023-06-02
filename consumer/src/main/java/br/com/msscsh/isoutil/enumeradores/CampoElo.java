@@ -8,10 +8,11 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public enum CampoElo {
-
-	BIT53_NOMEDOESTABELECIMENTO(ParteMensagemCobol.BIT_053_INFORMACAO_DE_CONTROLE_RELACIONADA_A_SEGURANCA.getNumeroDeOrdem(), "nomeDoEstabelecimento", 1, 22, 1),
+	TAMANHO100_01(ParteMensagemCobol.IDENTIFICADO_DO_TIPO_DE_MENSAGEM.getNumeroDeOrdem(), "campo100-01", 1, 100, 0),
+	TAMANHO100_02(ParteMensagemCobol.MAPA_DE_BITS_EXTENDIDO.getNumeroDeOrdem(), "campo100-02", 1, 100, 0),
 	BIT53_NOMEDACIDADE(ParteMensagemCobol.BIT_053_INFORMACAO_DE_CONTROLE_RELACIONADA_A_SEGURANCA.getNumeroDeOrdem(), "nomeDaCidade", 2, 13, 1),
-	BIT53_CODIGODOPAISOUESTADO(ParteMensagemCobol.BIT_053_INFORMACAO_DE_CONTROLE_RELACIONADA_A_SEGURANCA.getNumeroDeOrdem(), "codigoDoPAisOuEstado", 3, 3, 0);
+	BIT53_CODIGODOPAISOUESTADO(ParteMensagemCobol.BIT_053_INFORMACAO_DE_CONTROLE_RELACIONADA_A_SEGURANCA.getNumeroDeOrdem(), "codigoDoPAisOuEstado", 3, 3, 0),
+	BIT53_NOMEDOESTABELECIMENTO(ParteMensagemCobol.BIT_053_INFORMACAO_DE_CONTROLE_RELACIONADA_A_SEGURANCA.getNumeroDeOrdem(), "nomeDoEstabelecimento", 1, 22, 1);
 
 	/**
 	 * Representa a numeracao de ordem do campo.
