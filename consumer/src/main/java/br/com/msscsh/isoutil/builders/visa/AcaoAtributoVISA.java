@@ -1,8 +1,8 @@
 package br.com.msscsh.isoutil.builders.visa;
 
-import br.com.msscsh.isoutil.enumeradores.visa.CampoVISA;
+import br.com.msscsh.isoutil.enumeradores.visa.DeParaCOBOLCopybookCampoVISA;
 
 @FunctionalInterface
 interface AcaoAtributoVISA {
-    void executar(CampoVISA atributo);
+    void executar(DeParaCOBOLCopybookCampoVISA atributo);
 }

@@ -1,8 +1,8 @@
 package br.com.msscsh.isoutil.builders.elo;
 
-import br.com.msscsh.isoutil.enumeradores.elo.CampoElo;
+import br.com.msscsh.isoutil.enumeradores.elo.DeParaCOBOLCopybookCampoElo;
 
 @FunctionalInterface
 interface AcaoAtributoElo {
-    void executar(CampoElo campoElo);
+    void executar(DeParaCOBOLCopybookCampoElo campoElo);
 }

@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import br.com.msscsh.isoutil.builders.MensagemBuilder;
 import br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL;
-import br.com.msscsh.isoutil.enumeradores.mastercard.CampoMastercard;
+import br.com.msscsh.isoutil.enumeradores.mastercard.DeParaCOBOLCopybookCampoMastercard;
 import br.com.msscsh.isoutil.model.MensagemMastercard;
 
 public class MensagemMastercardBuilder extends MensagemBuilder<MensagemMastercardBuilder, MensagemMastercard> {
@@ -21,7 +21,7 @@ public class MensagemMastercardBuilder extends MensagemBuilder<MensagemMastercar
         .collect(Collectors.toList())
         .forEach(
         		parteCobol -> {
-        			CampoMastercard
+        			DeParaCOBOLCopybookCampoMastercard
 						.buscarAtributosPorNumeroDaParteDaMensagemCobol(parteCobol)
 						.stream()
 						.sorted((o1, o2) -> Integer.compare(o1.ordemDoAtributo, o2.ordemDoAtributo))
@@ -30,7 +30,7 @@ public class MensagemMastercardBuilder extends MensagemBuilder<MensagemMastercar
     	return self();
     }
 
-	private void execucaoPadraoDoAtributoDaBandeira(CampoMastercard atributoEnum) {
+	private void execucaoPadraoDoAtributoDaBandeira(DeParaCOBOLCopybookCampoMastercard atributoEnum) {
 		arquivoPOJO.adicionarAtributo(atributoEnum.nomeDoAtributo, getCampoNaMensagemKafka(atributoEnum.tamanhoDoAtributo));
 	    getCampoNaMensagemKafka(atributoEnum.tamanhoASerIgnoradoPosLeituraDoAtributo);
 	}

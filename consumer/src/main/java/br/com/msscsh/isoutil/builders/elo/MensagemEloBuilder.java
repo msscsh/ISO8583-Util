@@ -3,11 +3,10 @@ package br.com.msscsh.isoutil.builders.elo;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-import br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL;
-import br.com.msscsh.isoutil.enumeradores.elo.CampoElo;
-import br.com.msscsh.isoutil.model.MensagemElo;
-
 import br.com.msscsh.isoutil.builders.MensagemBuilder;
+import br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL;
+import br.com.msscsh.isoutil.enumeradores.elo.DeParaCOBOLCopybookCampoElo;
+import br.com.msscsh.isoutil.model.MensagemElo;
 
 public class MensagemEloBuilder extends MensagemBuilder<MensagemEloBuilder, MensagemElo> {
 
@@ -22,7 +21,7 @@ public class MensagemEloBuilder extends MensagemBuilder<MensagemEloBuilder, Mens
         .collect(Collectors.toList())
         .forEach(
         		parteCobol -> {
-        			CampoElo
+        			DeParaCOBOLCopybookCampoElo
 						.buscarAtributosPorNumeroDaParteDaMensagemCobol(parteCobol)
 						.stream()
 						.sorted((o1, o2) -> Integer.compare(o1.ordemDoAtributo, o2.ordemDoAtributo))
@@ -31,7 +30,7 @@ public class MensagemEloBuilder extends MensagemBuilder<MensagemEloBuilder, Mens
     	return self();
     }
 
-	private void execucaoPadraoDoAtributoDaBandeira(CampoElo atributoEnum) {
+	private void execucaoPadraoDoAtributoDaBandeira(DeParaCOBOLCopybookCampoElo atributoEnum) {
 		arquivoPOJO.adicionarAtributo(atributoEnum.nomeDoAtributo, getCampoNaMensagemKafka(atributoEnum.tamanhoDoAtributo));
 	    getCampoNaMensagemKafka(atributoEnum.tamanhoASerIgnoradoPosLeituraDoAtributo);
 	}

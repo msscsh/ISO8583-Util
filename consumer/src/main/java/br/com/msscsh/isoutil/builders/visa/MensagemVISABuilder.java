@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import br.com.msscsh.isoutil.builders.MensagemBuilder;
 import br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL;
-import br.com.msscsh.isoutil.enumeradores.visa.CampoVISA;
+import br.com.msscsh.isoutil.enumeradores.visa.DeParaCOBOLCopybookCampoVISA;
 import br.com.msscsh.isoutil.model.MensagemVISA;
 
 public class MensagemVISABuilder extends MensagemBuilder<MensagemVISABuilder, MensagemVISA> {
@@ -21,7 +21,7 @@ public class MensagemVISABuilder extends MensagemBuilder<MensagemVISABuilder, Me
         .collect(Collectors.toList())
         .forEach(
         		parteCobol -> {
-        			CampoVISA
+        			DeParaCOBOLCopybookCampoVISA
 						.buscarAtributosPorNumeroDaParteDaMensagemCobol(parteCobol)
 						.stream()
 						.sorted((o1, o2) -> Integer.compare(o1.ordemDoAtributo, o2.ordemDoAtributo))
@@ -30,7 +30,7 @@ public class MensagemVISABuilder extends MensagemBuilder<MensagemVISABuilder, Me
     	return self();
     }
 
-	private void execucaoPadraoDoAtributoDaBandeira(CampoVISA atributoEnum) {
+	private void execucaoPadraoDoAtributoDaBandeira(DeParaCOBOLCopybookCampoVISA atributoEnum) {
 		arquivoPOJO.adicionarAtributo(atributoEnum.nomeDoAtributo, getCampoNaMensagemKafka(atributoEnum.tamanhoDoAtributo));
 	    getCampoNaMensagemKafka(atributoEnum.tamanhoASerIgnoradoPosLeituraDoAtributo);
 	}
