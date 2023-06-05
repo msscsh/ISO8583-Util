@@ -1,5 +1,8 @@
 package br.com.msscsh.isoutil.enumeradores.elo;
 
+import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_043_CARD_ACCEPTOR_NAME_LOCATION;
+import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.IDENTIFICADO_DO_TIPO_DE_MENSAGEM;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -7,13 +10,21 @@ import java.util.stream.Collectors;
 import br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL;
 import lombok.AllArgsConstructor;
 
+/**
+ * 
+ * Com inutito de agrupar as parte da mensagem, com seus dados que podem variar
+ * 
+ */
 @AllArgsConstructor
-public enum CampoElo {
-	TAMANHO100_01(ParteMensagemCOBOL.IDENTIFICADO_DO_TIPO_DE_MENSAGEM.getNumeroDeOrdem(), "campo100-01", 1, 100, 0),
-	TAMANHO100_02(ParteMensagemCOBOL.MAPA_DE_BITS_EXTENDIDO.getNumeroDeOrdem(), "campo100-02", 1, 100, 0),
-	BIT53_NOMEDACIDADE(ParteMensagemCOBOL.BIT_053_INFORMACAO_DE_CONTROLE_RELACIONADA_A_SEGURANCA.getNumeroDeOrdem(), "nomeDaCidade", 2, 13, 1),
-	BIT53_CODIGODOPAISOUESTADO(ParteMensagemCOBOL.BIT_053_INFORMACAO_DE_CONTROLE_RELACIONADA_A_SEGURANCA.getNumeroDeOrdem(), "codigoDoPAisOuEstado", 3, 3, 0),
-	BIT53_NOMEDOESTABELECIMENTO(ParteMensagemCOBOL.BIT_053_INFORMACAO_DE_CONTROLE_RELACIONADA_A_SEGURANCA.getNumeroDeOrdem(), "nomeDoEstabelecimento", 1, 22, 1);
+public enum DeParaCOBOLCopybookCampoElo {
+
+	//IDENTIFICADO_DO_TIPO_DE_MENSAGEM
+	BIT0_IDTM(IDENTIFICADO_DO_TIPO_DE_MENSAGEM.getNumeroDaParte(), "ASZLO015-IDTM", 1, 4, 0),
+	
+	//BIT 43
+	BIT43_NOMEDOESTABELECIMENTO(BIT_043_CARD_ACCEPTOR_NAME_LOCATION.getNumeroDaParte(), "NOMEDOESTABELECIMENTO", 1, 22, 1),
+	BIT43_NOMEDACIDADE(BIT_043_CARD_ACCEPTOR_NAME_LOCATION.getNumeroDaParte(), "NOMEDACIDADE", 2, 13, 1),
+	BIT43_CODIGODOPAISOUESTADO(BIT_043_CARD_ACCEPTOR_NAME_LOCATION.getNumeroDaParte(), "CODIGODOPAISOUESTADO", 3, 3, 0);
 
 	/**
 	 * Representa a numeracao de ordem do campo.
@@ -33,9 +44,9 @@ public enum CampoElo {
 	 */
 	public int tamanhoASerIgnoradoPosLeituraDoAtributo;
 	
-	public static List<CampoElo> buscarAtributosPorNumeroDaParteDaMensagemCobol(ParteMensagemCOBOL parteDaMensagemCobol) {
-	    return Arrays.stream(CampoElo.values())
-	            .filter(entrada -> entrada.numeroDeOrdemDaParteDaMensagemCobol == parteDaMensagemCobol.getNumeroDeOrdem())
+	public static List<DeParaCOBOLCopybookCampoElo> buscarAtributosPorNumeroDaParteDaMensagemCobol(ParteMensagemCOBOL parteDaMensagemCobol) {
+	    return Arrays.stream(DeParaCOBOLCopybookCampoElo.values())
+	            .filter(entrada -> entrada.numeroDeOrdemDaParteDaMensagemCobol == parteDaMensagemCobol.getNumeroDaParte())
 	            .collect(Collectors.toList());
 	}
 	
