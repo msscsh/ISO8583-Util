@@ -1,7 +1,6 @@
 package br.com.msscsh.isoutil.enumeradores.elo;
 
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_043_CARD_ACCEPTOR_NAME_LOCATION;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.IDENTIFICADO_DO_TIPO_DE_MENSAGEM;
+import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.*;
 
 import java.util.Arrays;
 import java.util.List;
