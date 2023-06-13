@@ -31,7 +31,7 @@ public class MensagemVISABuilder extends MensagemBuilder<MensagemVISABuilder, Me
     }
 
 	private void execucaoPadraoDoAtributoDaBandeira(DeParaCOBOLCopybookCampoVISA atributoEnum) {
-		arquivoPOJO.adicionarAtributo(atributoEnum.nomeDoAtributo, getCampoNaMensagemKafka(atributoEnum.tamanhoDoAtributo));
+		arquivoPOJO.adicionarAtributo(atributoEnum.nomeDoAtributo, getCampoNaMensagemKafka(atributoEnum.tamanhoDoAtributo), null);
 	    getCampoNaMensagemKafka(atributoEnum.tamanhoASerIgnoradoPosLeituraDoAtributo);
 	}
     

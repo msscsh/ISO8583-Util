@@ -1,73 +1,6 @@
 package br.com.msscsh.isoutil.enumeradores.elo;
 
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_001_BITMAP;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_002_NUMERO_DO_CARTAO;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_003_CODIGO_PROCESSAMENTO;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_004_AMOUNT_TRANSACTION;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_005_AMOUNT_SETTLEMENT;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_006_AMOUNT_CARDHOLDER_BILLING;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_007_TRANSMISSION_DATE_TIME;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_008_AMOUNT_CARDHOLDER_BILLING_FEE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_009_CONVERSION_RATE_SETTLEMENT;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_010_CONVERSION_RATE_CARDHOLDER_BILLING;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_011_SYSTEM_TRACE_AUDIT_NUMBER_STAN;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_012_LOCAL_TRANSACTION_TIME_HHMMSS;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_013_LOCAL_TRANSACTION_DATE_MMDD;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_014_EXPIRATION_DATE_YYMM;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_015_SETTLEMENT_DATE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_016_CURRENCY_CONVERSION_DATE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_018_MERCHANT_TYPE_OR_MERCHANT_CATEGORY_CODE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_019_ACQUIRING_INSTITUTION_COUNTRY_CODE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_022_POINT_OF_SERVICE_ENTRY_MODE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_023_APPLICATION_PAN_SEQUENCE_NUMBER;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_024_FUNCTION_CODE_ISO_8583_1993_OR_NETWORK_INTERNATIONAL_IDENTIFIER_NII;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_025_POINT_OF_SERVICE_CONDITION_CODE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_026_POINT_OF_SERVICE_CAPTURE_CODE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_028_AMOUNT_TRANSACTION_FEE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_029_AMOUNT_SETTLEMENT_FEE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_032_ACQUIRING_INSTITUTION_IDENTIFICATION_CODE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_033_FORWARDING_INSTITUTION_IDENTIFICATION_CODE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_035_TRACK_2_DATA;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_036_TRACK_3_DATA;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_037_RETRIEVAL_REFERENCE_NUMBER;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_038_AUTHORIZATION_IDENTIFICATION_RESPONSE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_039_RESPONSE_CODE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_041_CARD_ACCEPTOR_TERMINAL_IDENTIFICATION;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_042_CARD_ACCEPTOR_IDENTIFICATION_CODE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_043_CARD_ACCEPTOR_NAME_LOCATION;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_045_TRACK_1_DATA;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_046_ADDITIONAL_DATA_ISO;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_047_ADDITIONAL_DATA_NATIONAL;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_048_ADDITIONAL_DATA_PRIVATE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_049_CURRENCY_CODE_TRANSACTION;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_050_CURRENCY_CODE_SETTLEMENT;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_051_CURRENCY_CODE_CARDHOLDER_BILLING;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_052_PERSONAL_IDENTIFICATION_NUMBER_DATA;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_053_SECURITY_RELATED_CONTROL_INFORMATION;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_054_ADDITIONAL_AMOUNTS;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_055_ICC_DATA_EMV_HAVING_MULTIPLE_TAGS;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_056_RESERVED_ISO;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_058_RESERVED_NATIONAL;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_059_RESERVED_NATIONAL;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_060_RESERVED_NATIONAL;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_062_RESERVED_PRIVATE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_063_RESERVED_PRIVATE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_070_NETWORK_MANAGEMENT_INFORMATION_CODE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_090_ORIGINAL_DATA_ELEMENTS;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_095_REPLACEMENT_AMOUNTS;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_100_BITMAP;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_104_TRANSACTION_DESCRIPTION;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_105_RESERVED_FOR_ISO_USE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_106_RESERVED_FOR_ISO_USE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_107_RESERVED_FOR_ISO_USE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_121_RESERVED_FOR_PRIVATE_USE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_122_RESERVED_FOR_PRIVATE_USE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_123_RESERVED_FOR_PRIVATE_USE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_124_RESERVED_FOR_PRIVATE_USE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_125_RESERVED_FOR_PRIVATE_USE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_126_RESERVED_FOR_PRIVATE_USE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.BIT_127_RESERVED_FOR_PRIVATE_USE;
-import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.IDENTIFICADO_DO_TIPO_DE_MENSAGEM;
+import static br.com.msscsh.isoutil.enumeradores.ParteMensagemCOBOL.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -83,9 +16,6 @@ import lombok.AllArgsConstructor;
  */
 @AllArgsConstructor
 public enum DeParaCOBOLCopybookCampoElo {
-
-//IDENTIFICADO_DO_TIPO_DE_MENSAGEM
-    BIT0_IDTM(IDENTIFICADO_DO_TIPO_DE_MENSAGEM.getNumeroDaParte(), "ASZLO015-IDTM", 1, 4, 0),
 
     BIT1_MAPA_BIT_EXTENDIDO(BIT_001_BITMAP.getNumeroDaParte(), "MAPA-BIT-EXT", 1, 192, 0),
     BIT1_MAPA_BITS_PRIMARIO(BIT_001_BITMAP.getNumeroDaParte(), "MAPA-BITS-PRIMARIO", 2, 16, 0),
@@ -496,11 +426,10 @@ public enum DeParaCOBOLCopybookCampoElo {
      */
     public int tamanhoASerIgnoradoPosLeituraDoAtributo;
 
-    public static List<DeParaCOBOLCopybookCampoElo> buscarAtributosPorNumeroDaParteDaMensagemCobol(
-	    ParteMensagemCOBOL parteDaMensagemCobol) {
-	return Arrays.stream(DeParaCOBOLCopybookCampoElo.values()).filter(
-		entrada -> entrada.numeroDeOrdemDaParteDaMensagemCobol == parteDaMensagemCobol.getNumeroDaParte())
-		.collect(Collectors.toList());
-}
+	public static List<DeParaCOBOLCopybookCampoElo> buscarAtributosPorNumeroDaParteDaMensagemCobol(ParteMensagemCOBOL parteDaMensagemCobol) {
+	    return Arrays.stream(DeParaCOBOLCopybookCampoElo.values())
+	            .filter(entrada -> entrada.numeroDeOrdemDaParteDaMensagemCobol == parteDaMensagemCobol.getNumeroDaParte())
+	            .collect(Collectors.toList());
+	}
 
 }

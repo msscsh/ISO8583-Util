@@ -31,7 +31,7 @@ public class MensagemMastercardBuilder extends MensagemBuilder<MensagemMastercar
     }
 
 	private void execucaoPadraoDoAtributoDaBandeira(DeParaCOBOLCopybookCampoMastercard atributoEnum) {
-		arquivoPOJO.adicionarAtributo(atributoEnum.nomeDoAtributo, getCampoNaMensagemKafka(atributoEnum.tamanhoDoAtributo));
+		arquivoPOJO.adicionarAtributo(atributoEnum.nomeDoAtributo, getCampoNaMensagemKafka(atributoEnum.tamanhoDoAtributo), atributoEnum.nomeDaListagemPertencente);
 	    getCampoNaMensagemKafka(atributoEnum.tamanhoASerIgnoradoPosLeituraDoAtributo);
 	}
 

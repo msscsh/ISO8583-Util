@@ -1,5 +1,8 @@
 package br.com.msscsh.isoutil.enumeradores;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -166,29 +169,42 @@ public enum ParteMensagemCOBOL {
 	
 	BIT_126_RESERVED_FOR_PRIVATE_USE(126, "Reserved for private use"),
 	BIT_127_RESERVED_FOR_PRIVATE_USE(127, "Reserved for private use"),
-	BIT_128_MESSAGE_AUTHENTICATION_CODE(128, "Message authentication code");
+	BIT_128_MESSAGE_AUTHENTICATION_CODE(128, "Message authentication code"),
+	
+
+	BIT_130_MESSAGE_AUTHENTICATION_CODE(130, "Message authentication code"),
+	BIT_131_MESSAGE_AUTHENTICATION_CODE(131, "Message authentication code"),
+	BIT_132_MESSAGE_AUTHENTICATION_CODE(132, "Message authentication code"),
+	BIT_133_MESSAGE_AUTHENTICATION_CODE(133, "Message authentication code"),
+	BIT_134_MESSAGE_AUTHENTICATION_CODE(134, "Message authentication code"),
+	BIT_135_MESSAGE_AUTHENTICATION_CODE(135, "Message authentication code"),
+	BIT_136_MESSAGE_AUTHENTICATION_CODE(136, "Message authentication code"),
+	BIT_137_MESSAGE_AUTHENTICATION_CODE(137, "Message authentication code"),
+	BIT_138_MESSAGE_AUTHENTICATION_CODE(138, "Message authentication code"),
+	BIT_139_MESSAGE_AUTHENTICATION_CODE(139, "Message authentication code"),
+	
+	BIT_142_MESSAGE_AUTHENTICATION_CODE(142, "Message authentication code"),
+	BIT_143_MESSAGE_AUTHENTICATION_CODE(143, "Message authentication code"),
+	BIT_144_MESSAGE_AUTHENTICATION_CODE(144, "Message authentication code"),
+	BIT_145_MESSAGE_AUTHENTICATION_CODE(145, "Message authentication code"),
+	BIT_146_MESSAGE_AUTHENTICATION_CODE(146, "Message authentication code"),
+	BIT_147_MESSAGE_AUTHENTICATION_CODE(147, "Message authentication code"),
+	BIT_148_MESSAGE_AUTHENTICATION_CODE(148, "Message authentication code"),
+	BIT_149_MESSAGE_AUTHENTICATION_CODE(149, "Message authentication code"),
+	BIT_150_MESSAGE_AUTHENTICATION_CODE(150, "Message authentication code"),
+	BIT_151_MESSAGE_AUTHENTICATION_CODE(151, "Message authentication code"),
+	BIT_152_MESSAGE_AUTHENTICATION_CODE(152, "Message authentication code");
+	
 	
 	int numeroDaParte;
 	String nomeDaParte;
+
+	public static String buscarNomeEnumDoBit(int bit) {
+	    return Arrays.stream(ParteMensagemCOBOL.values())
+	            .filter(entrada -> entrada.numeroDaParte == bit)
+	            .collect(Collectors.toList())
+	            .get(0)
+	            .name();
+	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

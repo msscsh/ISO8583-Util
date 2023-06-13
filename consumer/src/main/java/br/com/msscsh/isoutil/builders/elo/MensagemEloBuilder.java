@@ -31,7 +31,7 @@ public class MensagemEloBuilder extends MensagemBuilder<MensagemEloBuilder, Mens
     }
 
 	private void execucaoPadraoDoAtributoDaBandeira(DeParaCOBOLCopybookCampoElo atributoEnum) {
-		arquivoPOJO.adicionarAtributo(atributoEnum.nomeDoAtributo, getCampoNaMensagemKafka(atributoEnum.tamanhoDoAtributo));
+		arquivoPOJO.adicionarAtributo(atributoEnum.nomeDoAtributo, getCampoNaMensagemKafka(atributoEnum.tamanhoDoAtributo), null);
 	    getCampoNaMensagemKafka(atributoEnum.tamanhoASerIgnoradoPosLeituraDoAtributo);
 	}
 }
